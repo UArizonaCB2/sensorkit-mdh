@@ -1,0 +1,14 @@
+{
+	"participantidentifier" : "object",
+	"device_systemVersion" : "object",
+	"device_systemName" : "object",
+	"device_model" : "object",
+	"device_name" : "object",
+	"samples_sample_timestamp" : "float64",
+	"samples_sample_acceleration_x" : "float64",
+	"samples_sample_acceleration_y" : "float64",
+	"samples_sample_acceleration_z" : "float64",
+	"samples_sample_startDate" : "object",
+	"samples_sample_identifier" : "int64",
+	"samples_timestamp" : "object"
+}
