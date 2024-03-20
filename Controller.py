@@ -18,9 +18,10 @@ import pandas
 import json
 from sensorfabric.json.Flatten import flatten
 from sensorfabric.json.Raw import scanJsonFile
+from sensorfabric.json.Raw import prettyPrintSchema
 from athena import df_to_athena_table
 
-whitelist = ['sensorkit-accelerometer']
+whitelist = ['sensorkit-accelerometer', 'sensorkit-rotation-rate']
 
 def Controller(schema : str, path : str, aws : str):
     """
@@ -71,7 +72,11 @@ def _ingestData(schema : str, aws : str, table : str, participantidentifier : st
     if not ret:
         print(f"Malformed json at {path}")
         return
-    frame = flatten(json_buffer[0])
+    #prettyPrintSchema(json_buffer[0])
+    frame = flatten(json_buffer[0], fill=True)
+    #for k in frame.keys():
+    #    print(f"{k} - {len(frame[k])}")
+    frame = pandas.DataFrame(frame)
     # Add the participantID to this frame.
     pframe = pandas.DataFrame({'participantidentifier':[participantidentifier] * frame.shape[0]})
     frame = pandas.concat([frame, pframe], axis=1)
