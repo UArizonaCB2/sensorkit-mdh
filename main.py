@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from glob import glob
 import zipfile
 import re
+import base64
 
 if __name__ == '__main__':
 
@@ -18,6 +19,11 @@ if __name__ == '__main__':
    mdh_account_secret = os.environ.get('MDH_SECRET')
    mdh_account_name = os.environ.get('MDH_ACCOUNT_NAME')
    mdh_project_id = os.environ.get('MDH_PROJECT_ID')
+
+   # The secret will be passed as base64 through environment variables
+   # because of docker. Hence we need to decode it first here.
+   mdh_account_secret = base64.b64decode(mdh_account_secret)
+   mdh_account_secret = mdh_account_secret.decode('utf-8')
 
    # MDH fields are required.
    if mdh_account_name is None or mdh_account_secret is None or mdh_project_id is None:
