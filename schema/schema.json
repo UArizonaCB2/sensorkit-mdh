@@ -10,5 +10,12 @@
 	"samples_sample_acceleration_z" : "float64",
 	"samples_sample_startDate" : "object",
 	"samples_sample_identifier" : "int64",
-	"samples_timestamp" : "object"
+	"samples_timestamp" : "object",
+	"samples_sample_rotationRate_x" : "float64",
+	"samples_sample_rotationRate_y" : "float64",
+	"samples_sample_rotationRate_z" : "float64",
+	"samples_sample_lux" : "int64",
+	"samples_sample_chromaticity_x" : "float64",
+	"samples_sample_chromaticity_y" : "float64",
+	"samples_sample_placement" : "object"
 }
