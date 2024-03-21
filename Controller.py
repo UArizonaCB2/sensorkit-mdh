@@ -22,8 +22,7 @@ from sensorfabric.json.Raw import scanJsonFile
 from sensorfabric.json.Raw import prettyPrintSchema
 from athena import df_to_athena_table
 
-#whitelist = ['sensorkit-accelerometer', 'sensorkit-rotation-rate', 'sensorkit-ambient-light-sensor']
-whitelist = ['sensorkit-ambient-light-sensor']
+whitelist = ['sensorkit-accelerometer', 'sensorkit-rotation-rate', 'sensorkit-ambient-light-sensor']
 
 def Controller(schema : str, path : str, storage : str, method=['local']):
     """
